@@ -7,15 +7,9 @@ export class SoundModule extends Module {
   }
 
   trigger() {
-    const menuItem = document.querySelector(`.menu-item[data-type=${this.type}]`)
-    menuItem.addEventListener('click', () => {
-      const randomSoundPath = `./src/accets/sounds/${random(1, 9)}.mp3`
-      const sound = new Audio(randomSoundPath)
-      silencePromise(sound.play())
-    })
-  }
-  toHTML() {
-    return `<li class="menu-item" data-type="${this.type}">${this.text}</li>`
+    const randomSoundPath = `./src/accets/sounds/${random(1, 9)}.mp3`
+    const sound = new Audio(randomSoundPath)
+    silencePromise(sound.play())
   }
 }
 
