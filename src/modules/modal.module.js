@@ -8,7 +8,7 @@ export class Modal {
   render(text) {
     this.modalWrapper.className = 'fixed-overlay';
     this.modal.className = 'modal';
-    this.modalContainer.className = 'modal_container';
+    this.modalContainer.className = 'modal-container';
     this.modal.append(this.modalContainer);
     this.modalWrapper.append(this.modal);
     this.modalContainer.innerHTML = text;

@@ -58,9 +58,9 @@ body {
     margin-top: -75px;
 }
 
-.modal_container {
+.modal-container {
     background-color: rgb(250, 240, 210);
-    width: 350px;
+    width: 400px;
     height: 150px;
     border-radius: 10px;
     box-shadow: 10px 5px 5px rgb(124, 124, 124);
@@ -69,6 +69,29 @@ body {
     display: flex;
     justify-content: center;
     align-items:center;
+}
+
+.modal-timer {
+    position: fixed;
+    background-color: #1b1a1a;
+    color: white;
+    font-size: 1.3rem;
+    text-align: center;
+    padding: 5px;
+}
+
+#timer-form input {
+    font-size: 1.3rem;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+#timer-form input[type="number"] {
+    width: 300px;
+}
+
+#timer-form input:focus {
+    outline: none;
 }
 
 .box {
@@ -83,4 +106,4 @@ body {
     60% {opacity: 0.8;
     box-shadow: 0 0 3px;}
     100% {opacity: 0;}
-  }
+}
