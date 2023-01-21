@@ -1,4 +1,5 @@
 import {Module} from '../core/module';
+import {Modal} from './modal.module';
 
 export class ClicksModule extends Module {
   constructor(type, text) {
@@ -8,14 +9,8 @@ export class ClicksModule extends Module {
   }
 
   trigger() {
-    const modalWraper = document.createElement('div');
-    modalWraper.className = '.modal-wrapper';
-    const modal = document.createElement('div');
-    modal.className = 'modal';
-    modal.innerText = 'Считаем клики...';
-    modalWraper.append(modal);
-    document.append(modalWraper);
-    modalWraper.style.display = 'flex';
+    const modal = new Modal();
+    modal.render('Считаем клики...');
     const handleClick = (e) => {
       (e.type === 'click') ? this.countClicks += 1 : this.countDoubleClicks += 1;
     };
@@ -24,9 +19,9 @@ export class ClicksModule extends Module {
     setTimeout(() => {
       document.removeEventListener('click', handleClick);
       document.removeEventListener('dblclick', handleClick);
-      modal.innerText = `Количество кликов: ${this.countClicks} <br> Количество двойных кликов: ${this.countDoubleClicks}`;
+      modal.updateText(`Количество кликов: ${this.countClicks} <br> Количество двойных кликов: ${this.countDoubleClicks}`);
       setTimeout(() => {
-        modalWraper.style.display = 'none';
+        modal.deleteModal();
         this.countClicks = 0;
         this.countDoubleClicks = 0;
       }, 3000);
