@@ -5,7 +5,7 @@ import {ContextMenu} from "@/menu";
 const menu = new ContextMenu('#menu');
 window.addEventListener('contextmenu', (event) => {
   event.preventDefault();
-  menu.open(event);
+  menu.open(event.pageX, event.pageY);
 })
 
 

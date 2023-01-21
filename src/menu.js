@@ -5,7 +5,7 @@ export class ContextMenu extends Menu {
   constructor(selector) {
     super(selector);
   }
-  open() {
+  open(pageX, pageY) {
       this.el.classList.add('open');
       this.el.style.top = event.pageY + 'px';
       this.el.style.left = event.pageX + 'px';
