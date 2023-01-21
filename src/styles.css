@@ -40,3 +40,21 @@ body {
 .menu .menu-item:hover {
     background: #343434;
 }
+
+.modal-wrapper {
+    position:fixed;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    top:0px;
+    left:0px;
+    width:100vw;
+    height:100vh;
+}
+  
+.modal {
+    height: 200px;
+    width: 500px;
+    line-height: 200px;
+    text-align: center;
+}
