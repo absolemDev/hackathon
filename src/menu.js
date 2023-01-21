@@ -29,9 +29,8 @@ export class ContextMenu extends Menu {
   }
 
   close() {
-    let contextMenuElement = document.querySelector('#menu')
-    window.addEventListener('click', function () {
-      contextMenuElement.classList.remove('open')
+    window.addEventListener('click', () => {
+      this.el.classList.remove('open')
     })
   }
 
