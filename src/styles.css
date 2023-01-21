@@ -55,4 +55,6 @@ body {
 .modal {
     height: 200px;
     width: 500px;
+    line-height: 200px;
+    text-align: center;
 }
