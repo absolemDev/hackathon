@@ -6,13 +6,11 @@ export class ContextMenu extends Menu {
     super(selector);
   }
   open() {
-    window.addEventListener('contextmenu', (event) => {
-      event.preventDefault();
-      this.el.classList.add('open')
-      this.el.style.top = event.pageY + 'px'
-      this.el.style.left = event.pageX + 'px'
-      let windowWidth = window.innerWidth
-      let windowHeight = window.innerHeight
+      this.el.classList.add('open');
+      this.el.style.top = event.pageY + 'px';
+      this.el.style.left = event.pageX + 'px';
+      let windowWidth = window.innerWidth;
+      let windowHeight = window.innerHeight;
       let menuWidth = this.el.offsetWidth + 4;
       let menuHeight = this.el.offsetHeight + 4;
       if ((windowWidth - event.pageX) < menuWidth) {
@@ -25,23 +23,22 @@ export class ContextMenu extends Menu {
       } else {
         this.el.style.top = event.pageY + "px";
       }
-    })
   }
 
   close() {
     window.addEventListener('click', () => {
-      this.el.classList.remove('open')
+      this.el.classList.remove('open');
     })
   }
 
   add(module) {
-    let contextMenuElement = document.querySelector('#menu')
-    const methodHtml = document.createElement('li')
-    methodHtml.className = 'menu-item'
-    methodHtml.innerText = module.text
-    contextMenuElement.append(methodHtml)
+    let contextMenuElement = document.querySelector('#menu');
+    const methodHtml = document.createElement('li');
+    methodHtml.className = 'menu-item';
+    methodHtml.innerText = module.text;
+    contextMenuElement.append(methodHtml);
     methodHtml.addEventListener('click', (event) => {
-      module.trigger()
-    })
+      module.trigger();
+    });
   }
 }
