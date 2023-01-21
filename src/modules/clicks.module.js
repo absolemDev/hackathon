@@ -10,7 +10,7 @@ export class ClicksModule extends Module {
 
   trigger() {
     const modal = new Modal();
-    modal.render('Считаем клики...');
+    modal.render('<div>Считаем клики...</div>');
     const handleClick = (e) => {
       (e.type === 'click') ? this.countClicks += 1 : this.countDoubleClicks += 1;
     };
@@ -19,7 +19,7 @@ export class ClicksModule extends Module {
     setTimeout(() => {
       document.removeEventListener('click', handleClick);
       document.removeEventListener('dblclick', handleClick);
-      modal.updateText(`Количество кликов: ${this.countClicks} <br> Количество двойных кликов: ${this.countDoubleClicks}`);
+      modal.updateText(`<div>Количество кликов: ${this.countClicks}</div><div>Количество двойных кликов: ${this.countDoubleClicks}</div>`);
       setTimeout(() => {
         modal.deleteModal();
         this.countClicks = 0;
