@@ -9,6 +9,7 @@ export class ClicksModule extends Module {
   }
 
   trigger() {
+    
     const modal = new Modal();
     modal.render('<div>Считаем клики...</div>');
     const handleClick = (e) => {
@@ -19,7 +20,8 @@ export class ClicksModule extends Module {
     setTimeout(() => {
       document.removeEventListener('click', handleClick);
       document.removeEventListener('dblclick', handleClick);
-      modal.updateText(`<div>Количество кликов: ${this.countClicks}</div><div>Количество двойных кликов: ${this.countDoubleClicks}</div>`);
+      debugger;
+      modal.updateText(`Количество кликов: ${this.countClicks}<br>Количество двойных кликов: ${this.countDoubleClicks}`);
       setTimeout(() => {
         modal.deleteModal();
         this.countClicks = 0;
