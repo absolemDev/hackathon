@@ -37,6 +37,7 @@ export class ContextMenu extends Menu {
     methodHtml.innerText = module.text;
     contextMenuElement.append(methodHtml);
     methodHtml.addEventListener('click', (event) => {
+      this.el.classList.remove('open');
       module.trigger();
     });
   }
