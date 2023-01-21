@@ -20,7 +20,6 @@ export class ClicksModule extends Module {
     setTimeout(() => {
       document.removeEventListener('click', handleClick);
       document.removeEventListener('dblclick', handleClick);
-      debugger;
       modal.updateText(`Количество кликов: ${this.countClicks}<br>Количество двойных кликов: ${this.countDoubleClicks}`);
       setTimeout(() => {
         modal.deleteModal();
