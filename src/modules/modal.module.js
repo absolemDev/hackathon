@@ -13,7 +13,7 @@ export class Modal {
   }
 
   updateText(text) {
-    this.modalText.innerText = text;
+    this.modalText.innerHTML = text;
   }
 
   deleteModal() {
