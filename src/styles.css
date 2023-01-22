@@ -108,3 +108,54 @@ body {
     box-shadow: 0 0 3px;}
     100% {opacity: 0;}
 }
+
+.message {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    background: #d1edff;
+    color: #646464;
+    padding: 10px;
+    border-radius: 7px;
+}
+
+.message-show {
+    animation: messageShow 1s forwards ease-in-out;
+}
+
+.message-hide {
+    animation: messageHide 1s forwards ease-in-out;
+}
+
+@keyframes messageShow {
+    0% {transform: translateX(-500px);}
+    70% {transform: translateX(20px);}
+    100% {transform: translateX(0px);}
+}
+
+@keyframes messageHide {
+    0% {transform: translateX(0px);}
+    100% {
+        opacity: 0;
+        transform: translateX(-500px);
+    }
+}
+
+.loader {
+    width: 35px;
+    height: 35px;
+    border: 5px solid #545454;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: loaderRotation 1s linear infinite;
+    position: absolute;
+    left: 50vw;
+    top: 40vh;
+}
+
+@keyframes loaderRotation {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
