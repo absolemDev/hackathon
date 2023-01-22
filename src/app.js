@@ -13,7 +13,7 @@ const menu = new ContextMenu('#menu');
 menu.add(new ClicksModule('Click module', 'Считаем клики (3 секунды)'));
 menu.add(new TimerModule('Timer module', 'Таймер'));
 menu.add(new SoundModule('Sound module', 'Рандомный звук'));
-menu.add(new ShapeModule('Shape module', 'Случайная фигура'));
+menu.add(new ShapeModule('Shape module', 'Создать случайную фигуру'));
 menu.add(new BackgroundModule('Background module', 'Случайный фон'));
 menu.add(new MessageModule('Message module', 'Показать текущую погоду'));
 menu.add(new CatchRabbitModule('CatchRabbit module', 'Поймать кролика!'));
