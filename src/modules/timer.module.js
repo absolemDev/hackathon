@@ -9,7 +9,7 @@ export class TimerModule extends Module {
     this.isOpen = false;
     this.modal = new Modal();
     this.timerHTML = document.createElement('div');
-    this.timerHTML.className = "modal-timer";
+    this.timerHTML.className = 'modal-timer';
   }
 
   trigger() {
@@ -39,7 +39,7 @@ export class TimerModule extends Module {
       if (this.setTimer <= 0) return;
       this.modal.deleteModal();
       this.isOpen = false;
-      this.timerHTML.innerText = ``;
+      this.timerHTML.innerText = '';
       document.body.append(this.timerHTML);
       this.inProgress = setInterval(() => {
         const hour = Math.floor(this.setTimer / 60 / 60);
