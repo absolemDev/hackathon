@@ -1,74 +1,98 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-size: 14px;
-    font-family: 'Roboto', sans-serif;
-    height: 100vh;
-    width: 100%;
-    padding: 2rem;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  width: 100%;
+  padding: 2rem;
 }
 
 .menu {
-    position: fixed;
-    z-index: 1000;
-    width: 150px;
-    background: #1b1a1a;
-    border-radius: 5px;
-    display: none;
-    list-style: none;
+  position: fixed;
+  z-index: 1000;
+  width: 250px;
+  background: #1b1a1a;
+  border-radius: 5px;
+  display: none;
+  list-style: none;
 }
 
 .menu.open {
-    display: block;
+  display: block;
 }
 
 .menu .menu-item {
-    padding: 8px 10px;
-    font-size: 1rem;
-    color: #eee;
-    cursor: pointer;
-    transition: background-color .2s ease-in;
-    border-radius: inherit;
+  padding: 8px 10px;
+  font-size: 1rem;
+  color: #eee;
+  cursor: pointer;
+  transition: background-color .2s ease-in;
+  border-radius: inherit;
 }
 
 .menu .menu-item:hover {
-    background: #343434;
+  background: #343434;
 }
 
 .fixed-overlay {
-    position: fixed;
-    overflow: auto;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+  position: fixed;
+  overflow: auto;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .modal {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -100px;
-    margin-top: -75px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -100px;
+  margin-top: -75px;
 }
 
-.modal_container {
-    background-color: rgb(250, 240, 210);
-    width: 350px;
-    height: 150px;
-    border-radius: 10px;
-    box-shadow: 10px 5px 5px rgb(124, 124, 124);
-    text-align: center;
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: center;
-    align-items:center;
+.modal-container {
+  background-color: #d1edff;;
+  width: 400px;
+  height: 150px;
+  border-radius: 10px;
+  box-shadow: 10px 5px 5px rgb(124, 124, 124);
+  text-align: center;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-timer {
+  position: fixed;
+  background-color: #1b1a1a;
+  color: white;
+  font-size: 1.3rem;
+  text-align: center;
+  padding: 5px;
+}
+
+#timer-form input, .modal-container button {
+  font-size: 1.3rem;
+  padding: 5px 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+#timer-form input[type='number'] {
+  width: 310px;
+}
+
+#timer-form input:focus {
+  outline: none;
 }
 
 .box {
@@ -82,3 +106,54 @@ body {
     75% {opacity: 0.7;}
     100% {opacity: 0;}
   }
+
+.message {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  background: #d1edff;
+  color: #646464;
+  padding: 10px;
+  border-radius: 7px;
+}
+
+.message-show {
+  animation: messageShow 1s forwards ease-in-out;
+}
+
+.message-hide {
+  animation: messageHide 1s forwards ease-in-out;
+}
+
+@keyframes messageShow {
+  0% {transform: translateX(-500px);}
+  70% {transform: translateX(20px);}
+  100% {transform: translateX(0px);}
+}
+
+@keyframes messageHide {
+  0% {transform: translateX(0px);}
+  100% {
+    opacity: 0;
+    transform: translateX(-500px);
+  }
+}
+
+.loader {
+  width: 35px;
+  height: 35px;
+  border: 5px solid #545454;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: loaderRotation 1s linear infinite;
+  position: absolute;
+  left: 50vw;
+  top: 40vh;
+}
+
+@keyframes loaderRotation {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
