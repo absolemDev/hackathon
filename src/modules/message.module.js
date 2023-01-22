@@ -1,4 +1,4 @@
-import {Module} from "@/core/module";
+import {Module} from '@/core/module';
 
 export class MessageModule extends Module {
   constructor(name, type) {
@@ -21,7 +21,7 @@ export class MessageModule extends Module {
     this.messageElement.textContent = message;
     if (!document.querySelector('.message')) {
       document.body.append(this.messageElement);
-    }
+    };
   }
 
   hideMessage = () => {
@@ -32,9 +32,7 @@ export class MessageModule extends Module {
   };
 
   getPosition() {
-    return new Promise((resolve, reject) =>
-      navigator.geolocation.getCurrentPosition(resolve, reject)
-    );
+    return new Promise((resolve, reject) => navigator.geolocation.getCurrentPosition(resolve, reject));
   }
 
   async getWeather() {
@@ -57,7 +55,7 @@ export class MessageModule extends Module {
       name: weather.name,
       status: weather.weather[0].description,
       temp: Math.floor(weather.main.temp),
-      feelsLike: Math.floor(weather.main.feels_like)
+      feelsLike: Math.floor(weather.main.feels_like),
     };
     return `В ${parse.name} сейчас ${parse.status}, ${parse.temp}°C (ощущается как ${parse.feelsLike}°C)`;
   }
