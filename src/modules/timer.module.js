@@ -5,34 +5,60 @@ export class TimerModule extends Module {
   constructor(type, text) {
     super(type, text);
     this.setTimer = 0;
+    this.inProgress = false;
+    this.isOpen = false;
+    this.modal = new Modal();
+    this.timerHTML = document.createElement('div');
+    this.timerHTML.className = 'modal-timer';
   }
 
   trigger() {
-    const modal = new Modal();
-    modal.render('<form><input type="number" id="timer" name="timer" min="0"><input type="submit" value="Запустить таймер"></form>');
-    const form = document.getElementById("timer");
-    form.addEventListener('submit', (e) => {
+    if (this.inProgress && !this.isOpen) {
+      this.isOpen = true;
+      this.modal.render('<form><p>Таймер уже запущен. Сбросить?</p><button id="clear-interval-ok">Ок</button><button id="clear-interval-cansel">Отмена</button></form>');
+      document.getElementById('clear-interval-ok').addEventListener('click', () => {
+        this.timerHTML.remove();
+        clearInterval(this.inProgress);
+        this.inProgress = false;
+        this.modal.deleteModal();
+        this.setTimer = 0;
+        this.isOpen = false;
+      });
+      document.getElementById('clear-interval-cansel').addEventListener('click', () => {
+        this.modal.deleteModal();
+        this.isOpen = false;
+      })
+    }
+    if (this.inProgress || this.isOpen) return;
+    this.isOpen = true;
+    this.modal.render('<form id="timer-form"><input type="number" id="timer" name="timer" min="0" placeholder="Введите количество секунд"><button id="start-timer">Запустить таймер</button></form>');
+    document.getElementById('timer-form').addEventListener('click', (e) => {
       e.preventDefault();
-      modal.deleteModal();
-      if (Number(e.target.timer.value)) {
-        this.setTimer = e.target.timer.value;
-        const timerHTML = document.createElement('div');
-        timerHTML.className = "modal_timer";
-        const timer = setInterval(() => {
-          const hour = Math.floor(this.setTimer / 60 / 60);
-          const minute = Math.floor(this.setTimer / 60);
-          const second = this.setTimer % 60;
-          timerHTML.innerText = `${(hour > 9) ? hour : '0' + hour} : ${(minute > 9) ? minute : '0' + minute} : ${(second > 9) ? second : '0' + second}`;
-          this.setTimer -= 1;
-          if (this.setTimer === 0) {
-            clearInterval(timer);
-            modal.render('Таймер закончил свою работу!');
-            setTimeout(() => {
-              modal.deleteModal();
-            }, 3000);
-          };
-        }, 1000);
-      }
+      if (!e.target.closest('#start-timer')) return;
+      this.setTimer = Math.floor(Number(document.getElementById('timer').value));
+      if (this.setTimer <= 0) return;
+      this.modal.deleteModal();
+      this.isOpen = false;
+      this.timerHTML.innerText = '';
+      document.body.append(this.timerHTML);
+      this.inProgress = setInterval(() => {
+        const hour = Math.floor(this.setTimer / 60 / 60);
+        const minute = Math.floor(this.setTimer / 60 % 60);
+        const second = Math.floor(this.setTimer % 60);
+        this.timerHTML.innerText = `${(hour > 9) ? hour : '0' + hour} : ${(minute > 9) ? minute : '0' + minute} : ${(second > 9) ? second : '0' + second}`;
+        if (this.setTimer < 0) {
+          this.isOpen = true;
+          this.timerHTML.remove();
+          clearInterval(this.inProgress);
+          this.modal.render('Таймер закончил свою работу!');
+          setTimeout(() => {
+            this.modal.deleteModal();
+            this.inProgress = false;
+            this.isOpen = false;
+          }, 3000);
+        };
+        this.setTimer -= 1;
+      }, 1000);
     });
   }
 }
