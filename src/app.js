@@ -9,7 +9,7 @@ const menu = new ContextMenu('#menu');
 menu.add(new ClicksModule('Click module', 'Считаем клики (3 секунды)'));
 menu.add(new TimerModule('Timer module', 'Таймер'));
 menu.add(new SoundModule('Sound module', 'Рандомный звук'));
-menu.add(new ShapeModule('Shape module', 'Рандомная фигура'))
+menu.add(new ShapeModule('Shape module', 'Создать случайную фигура'));
 window.addEventListener('contextmenu', (event) => {
   event.preventDefault();
   menu.open(event.pageX, event.pageY);
