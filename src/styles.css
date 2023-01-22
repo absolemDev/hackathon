@@ -40,3 +40,27 @@ body {
 .menu .menu-item:hover {
     background: #343434;
 }
+
+.modal-timer {
+    position: fixed;
+    background-color: #1b1a1a;
+    color: white;
+    font-size: 1.3rem;
+    text-align: center;
+    padding: 5px;
+}
+
+#timer-form input, .modal-container button {
+    font-size: 1.3rem;
+    padding: 5px 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+#timer-form input[type="number"] {
+    width: 310px;
+}
+
+#timer-form input:focus {
+    outline: none;
+}
