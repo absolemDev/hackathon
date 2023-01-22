@@ -103,12 +103,10 @@ body {
 }
 
 @keyframes ani {
-  0% { opacity: 1; };
-  60% {
-    opacity: 0.8;
-    box-shadow: 0 0 3px;
-  };
-  100% { opacity: 0; };
+  0% {opacity: 1;}
+  60% {opacity: 0.8;
+    box-shadow: 0 0 3px;}
+  100% {opacity: 0;}
 }
 
 .message {
@@ -130,17 +128,17 @@ body {
 }
 
 @keyframes messageShow {
-  0% { transform: translateX(-500px); };
-  70% { transform: translateX(20px); };
-  100% { transform: translateX(0px); };
+  0% {transform: translateX(-500px);}
+  70% {transform: translateX(20px);}
+  100% {transform: translateX(0px);}
 }
 
 @keyframes messageHide {
-  0% { transform: translateX(0px); };
+  0% {transform: translateX(0px);}
   100% {
     opacity: 0;
     transform: translateX(-500px);
-  };
+  }
 }
 
 .loader {
@@ -158,6 +156,6 @@ body {
 }
 
 @keyframes loaderRotation {
-  0% { transform: rotate(0deg); };
-  100% { transform: rotate(360deg); };
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
 }
