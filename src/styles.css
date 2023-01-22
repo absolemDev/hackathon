@@ -17,7 +17,7 @@ body {
 .menu {
   position: fixed;
   z-index: 1000;
-  width: 150px;
+  width: 250px;
   background: #1b1a1a;
   border-radius: 5px;
   display: none;
@@ -59,7 +59,7 @@ body {
 }
 
 .modal-container {
-  background-color: rgb(250, 240, 210);
+  background-color: #d1edff;;
   width: 400px;
   height: 150px;
   border-radius: 10px;
