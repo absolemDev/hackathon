@@ -72,7 +72,6 @@ body {
 }
 
 .box {
-    box-shadow: 3px 3px 6px;
     position: absolute;
     opacity: 1;
     animation: ani 2.5s forwards;
@@ -80,7 +79,6 @@ body {
 
 @keyframes ani {
     0% {opacity: 1;}
-    60% {opacity: 0.8;
-    box-shadow: 0 0 3px;}
+    75% {opacity: 0.7;}
     100% {opacity: 0;}
   }
