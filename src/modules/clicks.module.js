@@ -9,7 +9,6 @@ export class ClicksModule extends Module {
   }
 
   trigger() {
-    
     const modal = new Modal();
     modal.render('<div>Считаем клики...</div>');
     const handleClick = (e) => {
