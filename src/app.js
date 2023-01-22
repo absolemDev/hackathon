@@ -6,7 +6,7 @@ import { SoundModule } from './modules/sound.module';
 import { ShapeModule } from './modules/shape.module';
 import { BackgroundModule } from './modules/background.module';
 import { MessageModule } from './modules/message.module';
-import { CatchRabbitModule } from '@/modules/catch-rabbit.module';
+import { CatchRabbitModule } from './modules/catchRabbit.module';
 import { ReloadModule } from './modules/reload.module';
 
 const menu = new ContextMenu('#menu');

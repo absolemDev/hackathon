@@ -1,7 +1,7 @@
-import {Module} from "../core/module";
+import { Module } from '../core/module';
 import Rabbit from '../accets/rabbit.png';
-import {random} from "@/utils";
-import {Modal} from "@/modules/modal.module";
+import { random } from '../utils';
+import { Modal } from './modal.module';
 
 export class CatchRabbitModule extends Module {
   constructor(type, text) {
@@ -11,7 +11,6 @@ export class CatchRabbitModule extends Module {
   }
 
   moveRabbit = () => {
-    console.log('move');
     const {width, height} = document.body.getBoundingClientRect();
     const y = random(0, height - 50);
     const x = random(0, width - 50);
@@ -32,7 +31,6 @@ export class CatchRabbitModule extends Module {
 
   incrementClickCount = () => {
     this.clickCount++;
-    console.log(this.clickCount);
   };
 
   endGame = () => {
@@ -46,7 +44,7 @@ export class CatchRabbitModule extends Module {
     this.rabbitImg.addEventListener('click', this.incrementClickCount);
     setTimeout(() => {
       this.rabbitImg.remove();
-      this.modal.render(`Вы поймали зайца ${this.clickCount} раз :)`);
+      this.modal.render(`Вы поймали кролика ${this.clickCount} раз :)`);
       clearInterval(intervalId);
       setTimeout(this.endGame, 3000);
     }, 15000);
